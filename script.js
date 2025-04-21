@@ -76,8 +76,11 @@
                 for (let i = 0; i < heights.length; i++) {
                     const blockHeight = heights[i];
                     const blockContainer = document.createElement('div');
+                    blockContainer.className = 'flex flex-col items-center';
                     
                     const blockElement = document.createElement('div');
+                    blockElement.className = 'block w-8 bg-gray-700 relative';
+                    blockElement.style.height = `${blockHeight * scaleFactor}px`;
 
                     const leftMax = Math.max(...heights.slice(0, i + 1));
                     const rightMax = Math.max(...heights.slice(i));
@@ -86,12 +89,13 @@
                     
                     if (waterHeight > 0) {
                         const waterElement = document.createElement('div');
-
+                        waterElement.className = 'water absolute bottom-0 w-full bg-blue-500';
                         waterElement.style.height = `${waterHeight * scaleFactor}px`;
                         blockElement.appendChild(waterElement);
                     }
                     
                     const valueLabel = document.createElement('div');
+                    valueLabel.className = 'text-xs font-bold mt-1';
                     valueLabel.textContent = blockHeight;
                     
                     blockContainer.appendChild(blockElement);
