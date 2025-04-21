@@ -3,7 +3,7 @@
             const calculateBtn = document.getElementById('calculate');
             const randomBtn = document.getElementById('random');
             const waterUnitsDisplay = document.getElementById('water-units');
-            const visualization = document.getElementById('graph-container');
+            const graph = document.getElementById('graph-container');
 
             calculateBtn.addEventListener('click', calculateWater);
             randomBtn.addEventListener('click', generateRandom);
@@ -66,7 +66,7 @@
             }
             
             function visualize(heights, waterUnits) {
-                visualization.innerHTML = '';
+                graph.innerHTML = '';
                 
                 if (heights.length === 0) return;
                 
@@ -100,7 +100,7 @@
                     
                     blockContainer.appendChild(blockElement);
                     blockContainer.appendChild(valueLabel);
-                    visualization.appendChild(blockContainer);
+                    graph.appendChild(blockContainer);
                 }
             }
         });
