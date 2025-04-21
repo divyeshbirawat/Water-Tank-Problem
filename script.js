@@ -1,5 +1,5 @@
         document.addEventListener('DOMContentLoaded', function() {
-            const heightInput = document.getElementById('height');
+            const height = document.getElementById('height');
             const calculateBtn = document.getElementById('calculate');
             const randomBtn = document.getElementById('random');
             const waterUnitsDisplay = document.getElementById('water-units');
@@ -9,7 +9,7 @@
             randomBtn.addEventListener('click', generateRandom);
             
             function calculateWater() {
-                const heights = heightInput.value.split(',')
+                const heights = height.value.split(',')
                     .map(item => parseInt(item.trim()))
                     .filter(num => !isNaN(num) && num >= 0);
                     
@@ -31,7 +31,7 @@
                     randomHeights.push(Math.floor(Math.random() * 5));
                 }
                 
-                heightInput.value = randomHeights.join(',');
+                height.value = randomHeights.join(',');
                 calculateWater();
             }
             
